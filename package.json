@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nyc tape 'test/**/*.spec.js'",
     "lint": "standard",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
