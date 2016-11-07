@@ -6,17 +6,13 @@ test('returns asynchronously and array of objects and no error', function (t) {
   const arr = []
 
   arr.push(function one (task, index, array, cb) {
-    console.log('calling one')
     process.nextTick(() => {
-      console.log('returning from one')
       return cb(null, {'one': 'one'})
     })
   })
 
   arr.push(function two (task, index, array, cb) {
-    console.log('calling two')
     setTimeout(function () {
-      console.log('returning from two')
       return cb(null, {'two': 'two'})
     }, 1000)
   })

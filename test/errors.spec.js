@@ -12,7 +12,6 @@ test('Does not return an array but an error', function (t) {
   })
 
   arr.push(function two (task, array, index, cb) {
-    console.log('calling two')
     setTimeout(function () {
       return cb(new Error(), {'two': 'two'})
     }, 1000)
