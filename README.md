@@ -9,6 +9,57 @@ their returns. This can be done very barebones with this tiny module.
 
 For better support and lifetime handling, as well as a better API go to [Steed](https://github.com/mcollina/steed).
 
+## Example
+
+```js
+const arr = []
+
+arr.push(function one (cb) {
+  process.nextTick(() => {
+    return cb(null, {'one': 'one'})
+  })
+})
+
+arr.push(function two (cb) {
+  console.log('calling two')
+  setTimeout(function () {
+    return cb(new Error(), {'two': 'two'})
+  }, 1000)
+})
+
+
+asyncForEach(arr, (err, res) => {
+  console.log(err) // null
+  console.log(res) // [ {'one': 'one'}, {'two': 'two'} ]
+                   // order is guaranteed
+})
+```
+
+or with an error:
+
+```js
+const arr = []
+
+arr.push(function one (cb) {
+  process.nextTick(() => {
+    return cb(new Error('Simple Error'), {'one': 'one'})
+  })
+})
+
+arr.push(function two (cb) {
+  console.log('calling two')
+  setTimeout(function () {
+    return cb(new Error(), {'two': 'two'})
+  }, 1000)
+})
+
+
+asyncForEach(arr, (err, res) => {
+  console.log(err) // err instanceof Error -> true
+  console.log(res) // undefined
+})
+```
+
 ## Prior Art
 
 > countless
