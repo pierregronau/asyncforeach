@@ -1,3 +1,4 @@
+'use strict'
 const asyncForEach = require('../')
 const test = require('tape')
 
