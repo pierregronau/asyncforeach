@@ -40,6 +40,6 @@ module.exports = function asyncForEach (arr, data, finish) {
       }
     }
     // allow for optional data API
-    task(task, index, array, !finish ? data || cb : cb)
+    task(task, index, array, !finish ? cb : data, cb)
   })
 }
