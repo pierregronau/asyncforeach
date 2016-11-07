@@ -1,0 +1,40 @@
+{
+  "name": "asyncforeach",
+  "version": "0.1.0",
+  "description": "Lightweight async Array-forEach-method.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc tape 'test/**/*.spec.js'",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TEDDBerlin/asyncforeach.git"
+  },
+  "keywords": [
+    "async",
+    "foreach",
+    "array"
+  ],
+  "constributors": [
+    {
+      "name": "Robert Jefe Lindstaedt",
+      "email": "robert.lindstaedt@gmail.com"
+    },
+    {
+      "name": "Glen Keane",
+      "email": "glenkeane.94@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TEDDBerlin/asyncforeach/issues"
+  },
+  "homepage": "https://github.com/TEDDBerlin/asyncforeach#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.14",
+    "nyc": "^8.4.0",
+    "standard": "^8.5.0",
+    "tape": "^4.6.2"
+  }
+}
