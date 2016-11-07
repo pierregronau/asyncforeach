@@ -6,7 +6,6 @@ test('without data', function (t) {
   const arr = []
 
   arr.push(function one (task, index, array, cb) {
-
     console.log('calling one')
     process.nextTick(() => {
       console.log('returning from one')
@@ -51,7 +50,7 @@ test('with data', function (t) {
     }, 1000)
   })
 
-  asyncForEach(arr, { 'data1': 'data1' },(err, res) => {
+  asyncForEach(arr, { 'data1': 'data1' }, (err, res) => {
     t.equal(err, null)
     t.deepEqual(res[0], {'one': 'one'})
     t.deepEqual(res[1], {'two': 'two'})
