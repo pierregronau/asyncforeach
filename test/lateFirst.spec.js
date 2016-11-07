@@ -11,7 +11,6 @@ test('first call will return much later than the first', function (t) {
       t.equal(--count, 0)
       return cb(null, {'one': 'one'})
     }, 200)
-
   })
 
   arr.push(function two (task, index, array, cb) {
