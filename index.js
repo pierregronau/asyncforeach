@@ -1,8 +1,11 @@
 'use strict'
-module.exports = function asyncForEach (arr, data, finish) {
+module.exports = function asyncForEach (arr, data, finishCb) {
   // allow for optional data API
-  if (!finish) {
+  let finish
+  if (!finishCb) {
     finish = data
+  } else {
+    finish = finishCb
   }
 
   const tasks = arr
@@ -40,6 +43,6 @@ module.exports = function asyncForEach (arr, data, finish) {
       }
     }
     // allow for optional data API
-    task(task, index, array, !finish ? cb : data, cb)
+    task(task, index, array, !finishCb ? cb : data, cb)
   })
 }
