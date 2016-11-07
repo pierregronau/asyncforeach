@@ -23,7 +23,7 @@ arr.push(function one (task, index, array, cb) {
 arr.push(function two (task, index, array, cb) {
   console.log('calling two')
   setTimeout(function () {
-    return cb(new Error(), {'two': 'two'})
+    return cb(null, {'two': 'two'})
   }, 1000)
 })
 
