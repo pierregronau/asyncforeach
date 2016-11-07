@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function asyncForEach (arr, finish) {
   const tasks = arr
   let completed = 0
