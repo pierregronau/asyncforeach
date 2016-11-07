@@ -1,4 +1,4 @@
-# asyncforeach
+# asyncforeach [![Build Status](https://travis-ci.org/TEDDBerlin/asyncforeach.svg?branch=master)](https://travis-ci.org/TEDDBerlin/asyncforeach) [![Coverage Status](https://coveralls.io/repos/github/TEDDBerlin/asyncforeach/badge.svg?branch=master)](https://coveralls.io/github/TEDDBerlin/asyncforeach?branch=master)
 
 > Lightweight async Array-forEach-method.
 
