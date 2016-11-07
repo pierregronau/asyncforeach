@@ -1,6 +1,6 @@
 {
   "name": "asyncforeach",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.2",
   "description": "Lightweight async Array-forEach-method.",
   "main": "index.js",
   "scripts": {
