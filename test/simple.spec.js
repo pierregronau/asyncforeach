@@ -5,7 +5,7 @@ test('returns asynchronously and array of objects and no error', function (t) {
   t.plan(3)
   const arr = []
 
-  arr.push(function one (cb) {
+  arr.push(function one (task, index, array, cb) {
     console.log('calling one')
     process.nextTick(() => {
       console.log('returning from one')
@@ -13,7 +13,7 @@ test('returns asynchronously and array of objects and no error', function (t) {
     })
   })
 
-  arr.push(function two (cb) {
+  arr.push(function two (task, index, array, cb) {
     console.log('calling two')
     setTimeout(function () {
       console.log('returning from two')

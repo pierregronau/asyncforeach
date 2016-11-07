@@ -10,7 +10,7 @@ module.exports = function asyncForEach (arr, data, finish) {
   let hasCalled = false
   let results = []
 
-  tasks.forEach((task, index) => {
+  tasks.forEach((task, index, array) => {
     let taskHasCalled = false
     // cb that will be called by user function
     const cb = (err, res) => {
@@ -40,6 +40,6 @@ module.exports = function asyncForEach (arr, data, finish) {
       }
     }
     // allow for optional data API
-    task(!finish ? data || cb : cb)
+    task(task, index, array, !finish ? data || cb : cb)
   })
 }

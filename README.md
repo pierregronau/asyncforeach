@@ -14,13 +14,13 @@ For better support and lifetime handling, as well as a better API go to [Steed](
 ```js
 const arr = []
 
-arr.push(function one (cb) {
+arr.push(function one (task, index, array, cb) {
   process.nextTick(() => {
     return cb(null, {'one': 'one'})
   })
 })
 
-arr.push(function two (cb) {
+arr.push(function two (task, index, array, cb) {
   console.log('calling two')
   setTimeout(function () {
     return cb(new Error(), {'two': 'two'})
@@ -40,13 +40,13 @@ or with an error:
 ```js
 const arr = []
 
-arr.push(function one (cb) {
+arr.push(function one (task, index, array, cb) {
   process.nextTick(() => {
     return cb(new Error('Simple Error'), {'one': 'one'})
   })
 })
 
-arr.push(function two (cb) {
+arr.push(function two (task, index, array, cb) {
   console.log('calling two')
   setTimeout(function () {
     return cb(new Error(), {'two': 'two'})

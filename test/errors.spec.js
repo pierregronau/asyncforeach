@@ -5,13 +5,13 @@ test('Does not return an array but an error', function (t) {
   t.plan(2)
   const arr = []
 
-  arr.push(function one (cb) {
+  arr.push(function one (task, array, index, cb) {
     process.nextTick(() => {
       return cb(null, {'one': 'one'})
     })
   })
 
-  arr.push(function two (cb) {
+  arr.push(function two (task, array, index, cb) {
     console.log('calling two')
     setTimeout(function () {
       return cb(new Error(), {'two': 'two'})
