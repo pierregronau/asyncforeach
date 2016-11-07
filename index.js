@@ -1,5 +1,10 @@
 'use strict'
-module.exports = function asyncForEach (arr, finish) {
+module.exports = function asyncForEach (arr, data, finish) {
+  // allow for optional data API
+  if (!finish) {
+    finish = data
+  }
+
   const tasks = arr
   let completed = 0
   let hasCalled = false
@@ -7,7 +12,8 @@ module.exports = function asyncForEach (arr, finish) {
 
   tasks.forEach((task, index) => {
     let taskHasCalled = false
-    task((err, res) => {
+    // cb that will be called by user function
+    const cb = (err, res) => {
       // bail early if we happened to have called already
       if (hasCalled) {
         return
@@ -32,6 +38,8 @@ module.exports = function asyncForEach (arr, finish) {
         hasCalled = true
         return finish(null, results)
       }
-    })
+    }
+    // allow for optional data API
+    task(!finish ? data || cb : cb)
   })
 }
