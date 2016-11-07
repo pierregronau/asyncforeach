@@ -18,7 +18,6 @@ test('Does not return an array but an error', function (t) {
     }, 1000)
   })
 
-
   asyncForEach(arr, (err, res) => {
     t.equal(res, undefined)
     t.ok(err instanceof Error)

@@ -21,7 +21,6 @@ test('returns asynchronously and array of objects and no error', function (t) {
     }, 1000)
   })
 
-
   asyncForEach(arr, (err, res) => {
     t.equal(err, null)
     t.deepEqual(res[0], {'one': 'one'})

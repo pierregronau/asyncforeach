@@ -12,9 +12,9 @@ module.exports = function asyncForEach (arr, finish) {
         return
       }
 
-     if (taskHasCalled) {
+      if (taskHasCalled) {
         return // or thow
-     }
+      }
 
       // return with the early error
       if (err) {
@@ -27,7 +27,7 @@ module.exports = function asyncForEach (arr, finish) {
       // caller to handle. Imagine multiple API calls with none 200 returns
       results[index] = res
       // of end of list is reached, return
-      if(++completed === tasks.length) {
+      if (++completed === tasks.length) {
         hasCalled = true
         return finish(null, results)
       }
